@@ -1,4 +1,4 @@
-package org.fasttrackit.trainginspring;
+package org.fasttrackit.trainginspring.repo;
 
 import org.fasttrackit.trainginspring.Entity.Animals;
 import org.springframework.data.jpa.repository.JpaRepository;

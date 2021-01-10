@@ -12,11 +12,6 @@ public class Animals
     private @Enumerated @Column Species spice;
 
 
-    Animals(String name, Species spice) {
-
-        this.name = name;
-        this.spice = spice;
-    }
     public Animals() {
 
     }
