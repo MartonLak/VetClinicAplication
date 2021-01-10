@@ -31,7 +31,7 @@ public class HelloController
     {
         return repository.findAll();
     }
-    //ols
+    //old
     /*@PostMapping("/AddAnimals")
 
     Animals getNewAnimals(@RequestBody Animals newAnimals)
