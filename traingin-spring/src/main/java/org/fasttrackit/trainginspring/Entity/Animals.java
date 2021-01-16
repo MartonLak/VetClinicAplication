@@ -4,12 +4,12 @@ import org.fasttrackit.trainginspring.Additional.Species;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "animals")
 public class Animals
 {
     private @Id @GeneratedValue Long id;
     private String name;
-    private @Enumerated @Column Species spice;
+    private @Enumerated(EnumType.STRING)  @Column Species  spice;
 
 
     public Animals() {

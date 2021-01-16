@@ -1,5 +1,4 @@
 package org.fasttrackit.trainginspring.Controller;
-
 import java.util.List;
 
 import org.fasttrackit.trainginspring.Additional.AnymalException;
@@ -16,11 +15,11 @@ public class HelloController
     private final AnimalService servicee;
     String[] a;
 
-    HelloController(AnimalRepo repository, AnimalService servicee) {
+    HelloController(AnimalRepo repository, AnimalService servicee)
+    {
         this.repository = repository;
         this.servicee = servicee;
     }
-
     @GetMapping("/api/salut")
     public String getHelloMessage()
     {
@@ -29,29 +28,26 @@ public class HelloController
     @GetMapping("/AllAnimals")
     List<Animals> all()
     {
+
         return repository.findAll();
     }
     //old
     /*@PostMapping("/AddAnimals")
 
     Animals getNewAnimals(@RequestBody Animals newAnimals)
-
     {
         return repository.save(newAnimals);
     }*/
     //old
-
     @PostMapping("/AddAnimalsService")
     public AnimalsOriginal createNewAnimal(@RequestBody AnimalsOriginal newAnimals)
     {
         return  servicee.createNewAnimal(newAnimals);
     }
-
     @GetMapping("/FindAnimal/{id}")
-
-    Animals FindAnimal(@PathVariable Long id)
+    public AnimalsOriginal FindAnimal(@PathVariable Long id)
     {
-        return repository.findById(id).orElseThrow(() -> new AnymalException(id));
+        return servicee.FindAnimal(id);
     }
     @PutMapping("UpdateAnimals/{id}")
     Animals replaceAnimals(@RequestBody Animals newAnimals, @PathVariable Long id)
@@ -66,7 +62,6 @@ public class HelloController
         });
 
     }
-
     @DeleteMapping("/DeleteAnimals/{id}")
     void deleteAnimals(@PathVariable Long id)
     {

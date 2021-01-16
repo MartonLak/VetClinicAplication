@@ -7,6 +7,8 @@ import org.fasttrackit.trainginspring.Entity.AnimalsOriginal;
 import org.fasttrackit.trainginspring.repo.AnimalRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
 public class AnimalService
@@ -23,16 +25,27 @@ public class AnimalService
         Animals newAnimal1 = new Animals();
         newAnimal1.setSpice(request.getSpice());
         newAnimal1.setName(request.getName());
-
         Animals saveEntity = this.repository.save(newAnimal1);
+        return mapEntityToAnimalsRepo(saveEntity);
 
-        AnimalsOriginal respondObject = new AnimalsOriginal();
-        respondObject.setId(saveEntity.getId());
-        respondObject.setName(saveEntity.getName());
-        respondObject.setSpice(saveEntity.getSpice());
-        return respondObject;
+    }
+    public AnimalsOriginal FindAnimal(Long animalID)
+    {
+        Optional<Animals> foundEntity = repository.findById(animalID);
+        if(!foundEntity.isPresent())
+        {
+            return null;
+        }
+        return foundEntity.map(entityToMap -> mapEntityToAnimalsRepo(entityToMap)).get();
     }
 
-
+    public AnimalsOriginal mapEntityToAnimalsRepo(Animals entity)
+    {
+        AnimalsOriginal response = new AnimalsOriginal();
+        response.setId(entity.getId());
+        response.setName(entity.getName());
+        response.setSpice(entity.getSpice());
+        return response;
+    }
 
 }
