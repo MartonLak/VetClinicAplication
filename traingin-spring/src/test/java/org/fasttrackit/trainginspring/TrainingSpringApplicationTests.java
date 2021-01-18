@@ -46,5 +46,4 @@ class TrainingSpringApplicationTests
 		Assertions.assertEquals("Marton",actual.getName());
 		Assertions.assertEquals(Species.DOG,actual.getSpice());
 	}
-
 }

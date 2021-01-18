@@ -18,7 +18,7 @@ public class AnimalsOriginal
 
     }
 
-    public Long getId(Long id) {
+    public Long getId() {
         return this.id;
     }
 
@@ -52,4 +52,5 @@ public class AnimalsOriginal
                 ", spice=" + spice +
                 '}';
     }
+
 }

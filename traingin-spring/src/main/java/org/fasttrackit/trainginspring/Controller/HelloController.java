@@ -25,11 +25,11 @@ public class HelloController
     {
         return "asd"+"\n";
     }
-    @GetMapping("/AllAnimals")
-    List<Animals> all()
-    {
 
-        return repository.findAll();
+    @GetMapping("/AllAnimals")
+    List<AnimalsOriginal> all()
+    {
+        return servicee.findAllAnimals();
     }
     //old
     /*@PostMapping("/AddAnimals")
@@ -45,26 +45,19 @@ public class HelloController
         return  servicee.createNewAnimal(newAnimals);
     }
     @GetMapping("/FindAnimal/{id}")
+
     public AnimalsOriginal FindAnimal(@PathVariable Long id)
     {
         return servicee.FindAnimal(id);
     }
     @PutMapping("UpdateAnimals/{id}")
-    Animals replaceAnimals(@RequestBody Animals newAnimals, @PathVariable Long id)
+    AnimalsOriginal replaceAnimals(@RequestBody AnimalsOriginal newAnimals, @PathVariable Long id)
     {
-        return repository.findById(id).map(animals -> {
-            animals.setName(newAnimals.getName());
-            animals.setSpice(newAnimals.getSpice());
-            return repository.save(animals);
-        }).orElseGet(()->{
-            newAnimals.setId(id);
-            return repository.save(newAnimals);
-        });
-
+        return servicee.updateAnimals(newAnimals);
     }
     @DeleteMapping("/DeleteAnimals/{id}")
     void deleteAnimals(@PathVariable Long id)
     {
-        repository.deleteById(id);
+       this.servicee.deleteAnimal(id);
     }
 }
