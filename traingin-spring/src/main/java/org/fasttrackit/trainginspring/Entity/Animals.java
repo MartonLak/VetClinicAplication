@@ -10,12 +10,9 @@ public class Animals
     private @Id @GeneratedValue Long id;
     private String name;
     private @Enumerated(EnumType.STRING)  @Column Species  spice;
-
-
     public Animals() {
 
     }
-
     public Long getId() {
         return this.id;
     }

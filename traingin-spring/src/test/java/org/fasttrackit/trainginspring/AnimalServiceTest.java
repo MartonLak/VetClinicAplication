@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 @ExtendWith(MockitoExtension.class)
-class TrainingSpringApplicationTests
+class AnimalServiceTest
 {
 	@InjectMocks
 	private AnimalService service;

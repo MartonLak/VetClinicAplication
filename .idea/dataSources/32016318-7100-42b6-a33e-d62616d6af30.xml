@@ -684,7 +684,7 @@ true Pacific/Easter
 false Pacific/Efate
 false Pacific/Enderbury
 false Pacific/Fakaofo
-true Pacific/Fiji
+false Pacific/Fiji
 false Pacific/Funafuti
 false Pacific/Galapagos
 false Pacific/Gambier
@@ -784,12 +784,12 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1608401563</StartupTime>
+      <StartupTime>1610707796</StartupTime>
     </root>
     <database id="2" parent="1" name="animals">
       <ObjectId>16497</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>646</IntrospectionStateNumber>
+      <IntrospectionStateNumber>734</IntrospectionStateNumber>
     </database>
     <database id="3" parent="1" name="customer">
       <ObjectId>16423</ObjectId>
@@ -803,7 +803,6 @@ false Zulu
       <ObjectId>13442</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>622</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <role id="6" parent="1" name="pg_execute_server_program">
