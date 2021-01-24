@@ -1,10 +1,9 @@
 package org.fasttrackit.trainginspring.Service;
 
-import com.sun.xml.bind.v2.model.core.ID;
-import org.fasttrackit.trainginspring.Additional.AnymalException;
-import org.fasttrackit.trainginspring.Entity.Animals;
-import org.fasttrackit.trainginspring.Entity.AnimalsOriginal;
+import org.fasttrackit.trainginspring.model.Entity.Animals;
+import org.fasttrackit.trainginspring.model.Entity.AnimalsOriginal;
 import org.fasttrackit.trainginspring.repo.AnimalRepo;
+import org.fasttrackit.trainginspring.repo.OwnersRepo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +18,11 @@ public class AnimalService
     @Value("${server.port}") // SpEL (Spring Expression Language)
     private String serverPort;
     private final AnimalRepo repository;
+    private final OwnersRepo repositoryOwners;
 
-    public AnimalService(AnimalRepo repository) {
+    public AnimalService(AnimalRepo repository, OwnersRepo repositoryOwners) {
         this.repository = repository;
+        this.repositoryOwners = repositoryOwners;
     }
 
     public AnimalsOriginal createNewAnimal(AnimalsOriginal request)

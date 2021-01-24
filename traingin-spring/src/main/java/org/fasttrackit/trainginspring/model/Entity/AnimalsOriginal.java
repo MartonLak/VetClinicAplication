@@ -1,4 +1,4 @@
-package org.fasttrackit.trainginspring.Entity;
+package org.fasttrackit.trainginspring.model.Entity;
 
 import org.fasttrackit.trainginspring.Additional.Species;
 

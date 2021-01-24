@@ -69,6 +69,7 @@ public class JavaArraylist
                     }
         }
     }
+
     public static void main(String[] args)
     {
         Solution2();

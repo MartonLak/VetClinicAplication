@@ -1,8 +1,8 @@
 package org.fasttrackit.trainginspring;
 
 import org.fasttrackit.trainginspring.Additional.Species;
-import org.fasttrackit.trainginspring.Entity.Animals;
-import org.fasttrackit.trainginspring.Entity.AnimalsOriginal;
+import org.fasttrackit.trainginspring.model.Entity.Animals;
+import org.fasttrackit.trainginspring.model.Entity.AnimalsOriginal;
 import org.fasttrackit.trainginspring.Service.AnimalService;
 import org.fasttrackit.trainginspring.repo.AnimalRepo;
 import org.junit.jupiter.api.Assertions;
@@ -13,7 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 
 
 @ExtendWith(MockitoExtension.class)
