@@ -1,8 +1,10 @@
 package Algorithms;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Palindrom
+public class Palindrom <T>
 {
     public static String Palindrom(String s)
     {
@@ -32,9 +34,11 @@ public class Palindrom
             return "No";
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         Scanner sc=new Scanner(System.in);
         String A=sc.next();
         System.out.println(Palindrom(A));
+
     }
+
 }

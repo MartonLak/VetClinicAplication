@@ -21,6 +21,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testCompile 'org.mockito:mockito-core:2.28.2'
 	testCompile 'org.mockito:mockito-junit-jupiter:2.28.2'
+	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
+	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
 }
 
 test {

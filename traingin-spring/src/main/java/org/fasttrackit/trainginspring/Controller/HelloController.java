@@ -28,7 +28,7 @@ public class HelloController
         return "asd"+"\n";
     }
 
-    @GetMapping("/AllAnimals")
+    @GetMapping("/animals")
     List<AnimalsOriginal> all()
     {
         return servicee.findAllAnimals();
@@ -41,33 +41,33 @@ public class HelloController
         return repository.save(newAnimals);
     }*/
     //old
-    @PostMapping("/AddAnimalsService")
+    @PostMapping("/animals")
     public AnimalsOriginal createNewAnimal(@RequestBody AnimalsOriginal newAnimals)
     {
         return  servicee.createNewAnimal(newAnimals);
     }
-    @PostMapping("/AddOwnerService")
+    @PostMapping("/owner")
     public OwnersOriginal createNewOwner(@RequestBody OwnersOriginal newOwner)
     {
         return serviceOwner.createNewOwner(newOwner);
     }
-    @GetMapping("/FindAnimal/{id}")
+    @GetMapping("/animals/{id}")
 
     public AnimalsOriginal FindAnimal(@PathVariable Long id)
     {
         return servicee.FindAnimal(id);
     }
-    @PutMapping("UpdateAnimals/{id}")
+    @PutMapping("animals/{id}")
     AnimalsOriginal replaceAnimals(@RequestBody AnimalsOriginal newAnimals, @PathVariable Long id)
     {
         return servicee.updateAnimals(newAnimals);
     }
-    @DeleteMapping("/DeleteAnimals/{id}")
+    @DeleteMapping("/animals/{id}")
     void deleteAnimals(@PathVariable Long id)
     {
        this.servicee.deleteAnimal(id);
     }
-    @DeleteMapping("/DeleteOwner/{id}")
+    @DeleteMapping("/owner/{id}")
     void deleteOwners(@PathVariable Long id)
     {
         this.serviceOwner.deleteOwner(id);
