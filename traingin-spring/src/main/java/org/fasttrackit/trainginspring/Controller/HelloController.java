@@ -2,10 +2,10 @@ package org.fasttrackit.trainginspring.Controller;
 import java.util.List;
 
 import org.fasttrackit.trainginspring.Service.OwnersService;
-import org.fasttrackit.trainginspring.model.Entity.AnimalsOriginal;
+import org.fasttrackit.trainginspring.model.AnimalsOriginal;
 import org.fasttrackit.trainginspring.Service.AnimalService;
-import org.fasttrackit.trainginspring.model.Entity.OwnersOriginal;
-import org.fasttrackit.trainginspring.repo.AnimalRepo;
+import org.fasttrackit.trainginspring.model.OwnersOriginal;
+import org.fasttrackit.trainginspring.Repo.AnimalRepo;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -55,7 +55,7 @@ public class HelloController
 
     public AnimalsOriginal FindAnimal(@PathVariable Long id)
     {
-        return servicee.FindAnimal(id);
+        return servicee.findAnimal(id);
     }
     @PutMapping("animals/{id}")
     AnimalsOriginal replaceAnimals(@RequestBody AnimalsOriginal newAnimals, @PathVariable Long id)

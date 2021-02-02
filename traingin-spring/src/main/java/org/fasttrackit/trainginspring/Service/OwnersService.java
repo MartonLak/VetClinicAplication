@@ -1,11 +1,9 @@
 package org.fasttrackit.trainginspring.Service;
 
 
-import org.fasttrackit.trainginspring.model.Entity.Animals;
-import org.fasttrackit.trainginspring.model.Entity.AnimalsOriginal;
-import org.fasttrackit.trainginspring.model.Entity.Owners;
-import org.fasttrackit.trainginspring.model.Entity.OwnersOriginal;
-import org.fasttrackit.trainginspring.repo.OwnersRepo;
+import org.fasttrackit.trainginspring.model.Owners;
+import org.fasttrackit.trainginspring.model.OwnersOriginal;
+import org.fasttrackit.trainginspring.Repo.OwnersRepo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

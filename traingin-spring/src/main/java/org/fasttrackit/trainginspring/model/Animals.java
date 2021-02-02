@@ -1,4 +1,4 @@
-package org.fasttrackit.trainginspring.model.Entity;
+package org.fasttrackit.trainginspring.model;
 import org.fasttrackit.trainginspring.Additional.Species;
 
 import javax.persistence.*;
@@ -9,7 +9,7 @@ public class Animals
 {
     private @Id @GeneratedValue Long id;
     private String name;
-    private @Enumerated(EnumType.STRING)  @Column Species  spice;
+    private @Enumerated(EnumType.STRING)  @Column Species Species;
     public Animals() {
 
     }
@@ -21,8 +21,8 @@ public class Animals
         return this.name;
     }
 
-    public Species getSpice() {
-        return this.spice;
+    public Species getSpecies() {
+        return this.Species;
     }
 
     public void setId(Long id) {
@@ -33,8 +33,8 @@ public class Animals
         this.name = name;
     }
 
-    public void setSpice(Species spice) {
-        this.spice = spice;
+    public void setSpecies(Species species) {
+        this.Species = species;
     }
 
     @Override
@@ -46,16 +46,16 @@ public class Animals
             return false;
         Animals animals = (Animals) o;
         return Objects.equals(this.id, animals.id) && Objects.equals(this.name, animals.name)
-                && Objects.equals(this.spice, animals.spice);
+                && Objects.equals(this.Species, animals.Species);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.name, this.spice);
+        return Objects.hash(this.id, this.name, this.Species);
     }
 
     @Override
     public String toString() {
-        return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.spice + '\'' + '}'+"\r\n";
+        return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.Species + '\'' + '}'+"\r\n";
     }
 }

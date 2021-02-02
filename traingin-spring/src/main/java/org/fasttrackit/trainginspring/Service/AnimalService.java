@@ -1,9 +1,9 @@
 package org.fasttrackit.trainginspring.Service;
 
-import org.fasttrackit.trainginspring.model.Entity.Animals;
-import org.fasttrackit.trainginspring.model.Entity.AnimalsOriginal;
-import org.fasttrackit.trainginspring.repo.AnimalRepo;
-import org.fasttrackit.trainginspring.repo.OwnersRepo;
+import org.fasttrackit.trainginspring.model.Animals;
+import org.fasttrackit.trainginspring.model.AnimalsOriginal;
+import org.fasttrackit.trainginspring.Repo.AnimalRepo;
+import org.fasttrackit.trainginspring.Repo.OwnersRepo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -28,13 +28,13 @@ public class AnimalService
     public AnimalsOriginal createNewAnimal(AnimalsOriginal request)
     {
         Animals newAnimal1 = new Animals();
-        newAnimal1.setSpice(request.getSpice());
+        newAnimal1.setSpecies(request.getSpice());
         newAnimal1.setName(request.getName());
         Animals saveEntity = this.repository.save(newAnimal1);
         return mapEntityToAnimalsRepo(saveEntity);
 
     }
-    public AnimalsOriginal FindAnimal(Long animalID)
+    public AnimalsOriginal findAnimal(Long animalID)
     {
         Optional<Animals> foundEntity = repository.findById(animalID);
         if(!foundEntity.isPresent())
@@ -50,7 +50,7 @@ public class AnimalService
     public AnimalsOriginal updateAnimals(AnimalsOriginal request)
     {
         Animals newAnimal1 = new Animals();
-        newAnimal1.setSpice(request.getSpice());
+        newAnimal1.setSpecies(request.getSpice());
         newAnimal1.setId(request.getId());
         newAnimal1.setName(request.getName());
         Animals saveEntity = this.repository.save(newAnimal1);
@@ -67,7 +67,7 @@ public class AnimalService
         AnimalsOriginal response = new AnimalsOriginal();
         response.setId(entity.getId());
         response.setName(entity.getName());
-        response.setSpice(entity.getSpice());
+        response.setSpice(entity.getSpecies());
         return response;
     }
 

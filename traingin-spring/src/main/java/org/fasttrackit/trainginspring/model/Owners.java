@@ -1,4 +1,4 @@
-package org.fasttrackit.trainginspring.model.Entity;
+package org.fasttrackit.trainginspring.model;
 
 
 import javax.persistence.*;
