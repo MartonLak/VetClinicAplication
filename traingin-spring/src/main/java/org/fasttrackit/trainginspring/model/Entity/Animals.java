@@ -1,7 +1,8 @@
-package org.fasttrackit.trainginspring.model;
+package org.fasttrackit.trainginspring.model.Entity;
 import org.fasttrackit.trainginspring.Additional.Species;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "animals")
@@ -10,6 +11,10 @@ public class Animals
     private @Id @GeneratedValue Long id;
     private String name;
     private @Enumerated(EnumType.STRING)  @Column Species Species;
+    @ManyToMany
+    private List<Owners> owners;
+    @ManyToMany
+    private List<Consultation> consultationList;
     public Animals() {
 
     }

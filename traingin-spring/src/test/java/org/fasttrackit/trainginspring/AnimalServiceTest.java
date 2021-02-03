@@ -1,7 +1,7 @@
 package org.fasttrackit.trainginspring;
 
 import org.fasttrackit.trainginspring.Additional.Species;
-import org.fasttrackit.trainginspring.model.Animals;
+import org.fasttrackit.trainginspring.model.Entity.Animals;
 import org.fasttrackit.trainginspring.model.AnimalsOriginal;
 import org.fasttrackit.trainginspring.Service.AnimalService;
 import org.fasttrackit.trainginspring.Repo.AnimalRepo;

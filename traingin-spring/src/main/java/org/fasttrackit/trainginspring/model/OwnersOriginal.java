@@ -1,5 +1,7 @@
 package org.fasttrackit.trainginspring.model;
 
+import org.fasttrackit.trainginspring.model.Entity.Animals;
+
 import java.util.List;
 
 public class OwnersOriginal

@@ -1,10 +1,11 @@
-package org.fasttrackit.trainginspring.model;
+package org.fasttrackit.trainginspring.model.Entity;
 
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name="owners")
+
 public class Owners
 {
     @Id
@@ -27,8 +28,8 @@ public class Owners
         this.animalsID = animalsID;
     }
 
-    @ManyToMany
-    private List<Animals> anmials;
+    @ManyToMany(mappedBy = "owners")
+    private List<Animals> animals;
 
     public String getFirstName() {
         return firstName;
@@ -62,12 +63,12 @@ public class Owners
         this.lastName = ownersName;
     }
 
-    public List<Animals> getAnmials() {
-        return anmials;
+    public List<Animals> getAnimals() {
+        return animals;
     }
 
-    public void setAnmials(List<Animals> anmials) {
-        this.anmials = anmials;
+    public void setAnimals(List<Animals> anmials) {
+        this.animals = anmials;
     }
 
     @Override
@@ -77,7 +78,7 @@ public class Owners
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", CNP=" + CNP +
-                ", anmials=" + anmials +
+                ", anmials=" + animals +
                 '}';
     }
 }

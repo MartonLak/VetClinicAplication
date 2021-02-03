@@ -1,7 +1,7 @@
 package org.fasttrackit.trainginspring.Service;
 
 
-import org.fasttrackit.trainginspring.model.Owners;
+import org.fasttrackit.trainginspring.model.Entity.Owners;
 import org.fasttrackit.trainginspring.model.OwnersOriginal;
 import org.fasttrackit.trainginspring.Repo.OwnersRepo;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,7 +24,7 @@ public class OwnersService
         newOwner1.setFirstName(request.getFirstName());
         newOwner1.setLastName(request.getLastName());
         newOwner1.setCNP(request.getCNP());
-        newOwner1.setAnmials(request.getAnmials());
+        newOwner1.setAnimals(request.getAnmials());
         newOwner1.setAnimalsID(request.getAnimalsID());
         Owners saveEntity  =this.repository.save(newOwner1);
         return mapEntityTOwnersRepo(saveEntity);
@@ -36,7 +36,7 @@ public class OwnersService
         response.setFirstName(entity.getFirstName());
         response.setLastName(entity.getLastName());
         response.setCNP(entity.getCNP());
-        response.setAnmials(entity.getAnmials());
+        response.setAnmials(entity.getAnimals());
         response.setAnimalsID(entity.getAnimalsID());
         return response;
     }
