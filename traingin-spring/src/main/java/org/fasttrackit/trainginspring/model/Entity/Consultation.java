@@ -18,8 +18,7 @@ public class Consultation
     private Date dateOfScheduling;
     @Column
     private Date dateOfConsulting;
-    @ManyToMany(mappedBy = "animals")
-    private List<Animals> animals;
+
     public Long getId() {
         return id;
     }

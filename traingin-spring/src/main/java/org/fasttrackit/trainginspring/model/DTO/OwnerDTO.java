@@ -1,5 +1,8 @@
 package org.fasttrackit.trainginspring.model.DTO;
 
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 public class OwnerDTO
 {
     long id;
