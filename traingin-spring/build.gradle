@@ -26,6 +26,8 @@ dependencies {
 	compile 'io.springfox:springfox-swagger2:3.0.0'
 	compile 'io.springfox:springfox-boot-starter:3.0.0'
 	compile 'io.springfox:springfox-spring-web:3.0.0'
+	compile group: 'org.springframework.amqp', name: 'spring-rabbit', version: '2.3.4'
+
 }
 
 test {
