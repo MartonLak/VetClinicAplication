@@ -10,11 +10,20 @@ public class Animals
 {
     private @Id @GeneratedValue Long id;
     private String name;
-    private @Enumerated(EnumType.STRING)  @Column Species Species;
-    @ManyToMany
-    private List<Owners> owners;
-    @ManyToMany
-    private List<Consultation> consultationList;
+    private @Enumerated(EnumType.STRING)
+    @Column Species Species;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "animalConsulted")
+    private Consultation consultationEntity;
+
+    public Consultation getConsultationEntity() {
+        return consultationEntity;
+    }
+
+    public void setConsultationEntity(Consultation consultationEntity) {
+        this.consultationEntity = consultationEntity;
+    }
+
     public Animals() {
 
     }

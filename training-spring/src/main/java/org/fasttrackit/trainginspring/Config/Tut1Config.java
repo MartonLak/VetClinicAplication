@@ -1,6 +1,8 @@
 package org.fasttrackit.trainginspring.Config;
 
 
+
+
 import org.fasttrackit.trainginspring.messaging.Tut1Receiver;
 import org.fasttrackit.trainginspring.messaging.Tut1Sender;
 import org.springframework.amqp.core.Queue;

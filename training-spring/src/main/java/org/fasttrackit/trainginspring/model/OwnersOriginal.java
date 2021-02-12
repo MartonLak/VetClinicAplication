@@ -2,6 +2,7 @@ package org.fasttrackit.trainginspring.model;
 
 import org.fasttrackit.trainginspring.model.Entity.Animals;
 
+import javax.persistence.Column;
 import java.util.List;
 
 public class OwnersOriginal
@@ -9,16 +10,25 @@ public class OwnersOriginal
     private Long id;
     private String lastName;
     private String firstName;
-    Integer  CNP;
-    private Long animalsID;
-    private List<Animals> anmials;
+    private Integer  CNP;
+    private String phoneNumber;
+    private String email;
 
-    public Long getAnimalsID() {
-        return animalsID;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setAnimalsID(Long animalsID) {
-        this.animalsID = animalsID;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Long getId() {
@@ -53,12 +63,5 @@ public class OwnersOriginal
         this.CNP = CNP;
     }
 
-    public List<Animals> getAnmials() {
-        return anmials;
-    }
-
-    public void setAnmials(List<Animals> anmials) {
-        this.anmials = anmials;
-    }
 }
 
