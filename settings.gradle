@@ -1,0 +1,4 @@
+rootProject.name = 'spring-project'
+
+include 'training-spring'
+include 'vetclinic-notification'
