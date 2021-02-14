@@ -130,7 +130,12 @@ public class HelloController {
     @PostMapping("/Consultation")
     public ConsultationOriginal createNewConsultation(@RequestBody ConsultationOriginal newConsult)
     {
-
         return consultService.createNewAnimal(newConsult);
     }
+    @DeleteMapping("/Consultation/{id}")
+    void deleteConsultation(@PathVariable Long id)
+    {
+        this.consultService.deleteConsultation(id);
+    }
+
 }

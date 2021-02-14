@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ConsultationService extends Tut1Sender
+public class ConsultationService
 {
     @Autowired
     private RabbitTemplate template;
@@ -34,9 +34,8 @@ public class ConsultationService extends Tut1Sender
         String message = "Consultation Created at";
         this.template.convertAndSend(queue.getName(), message);
         System.out.println(" [x] Created '" + message + "'");
+                        /*SaveInRepo*/
         Consultation newConsultation = new Consultation();
-
-
         newConsultation.setAnimalConsulted(request.getAnimalConsulted());
         newConsultation.setConsultationId(request.getConsultationId());
         newConsultation.setOwnersAnimalConsulted(request.getOwnersAnimalConsulted());
@@ -44,9 +43,17 @@ public class ConsultationService extends Tut1Sender
         Consultation saveEntity = this.repository.save(newConsultation);
         return mapEntityToConsultRepo(saveEntity);
     }
-
+    public void deleteConsultation(Long id)
+    {
+        /*Notification*/
+        String message = "Consultation Deleted at";
+        this.template.convertAndSend(queue.getName(), message);
+        System.out.println(" [x] Created '" + message + "'");
+        this.repository.deleteById(id);
+    }
     public ConsultationOriginal mapEntityToConsultRepo(Consultation entity)
     {
+
         ConsultationOriginal response = new ConsultationOriginal();
         response.setAnimalConsulted(entity.getAnimalConsulted());
         response.setConsultationId(entity.getConsultationId());

@@ -9,8 +9,55 @@ public class Diagnosis
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long diagnosticsId;
 
-   /* @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="consultationId", referencedColumnName = "id")
-    private Long consultationId;*/
+    @Column
+    private  Long consultationIdReferenced = new Consultation().getConsultationId();
 
+    @Column
+    private  String Title;
+
+    @Column
+    private String Description;
+
+    @Column
+    private String Recommendations;
+
+    public Long getDiagnosticsId() {
+        return diagnosticsId;
+    }
+
+    public void setDiagnosticsId(Long diagnosticsId) {
+        this.diagnosticsId = diagnosticsId;
+    }
+
+    public Long getConsultationIdReferenced() {
+        return consultationIdReferenced;
+    }
+
+    public void setConsultationIdReferenced(Long consultationIdReferenced) {
+        this.consultationIdReferenced = consultationIdReferenced;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getRecommendations() {
+        return Recommendations;
+    }
+
+    public void setRecommendations(String recommendations) {
+        Recommendations = recommendations;
+    }
 }
