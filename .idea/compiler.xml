@@ -2,10 +2,11 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="spring-proiect" target="11" />
+      <module name="spring-proiect.main" target="11" />
+      <module name="spring-proiect.test" target="11" />
       <module name="traingin-spring.main" target="11" />
       <module name="traingin-spring.test" target="11" />
-      <module name="training-spring" target="11" />
-      <module name="vetclinic-notification" target="15" />
       <module name="VetClinic-Notification.main" target="15" />
       <module name="VetClinic-Notification.test" target="15" />
     </bytecodeTargetLevel>
