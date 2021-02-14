@@ -1,16 +1,25 @@
 package org.fasttrackit.trainginspring.Service;
 
 import org.fasttrackit.trainginspring.Repo.ConsultationRepo;
+import org.fasttrackit.trainginspring.messaging.Tut1Sender;
 import org.fasttrackit.trainginspring.model.AnimalsOriginal;
 import org.fasttrackit.trainginspring.model.ConsultationOriginal;
 import org.fasttrackit.trainginspring.model.Entity.Animals;
 import org.fasttrackit.trainginspring.model.Entity.Consultation;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ConsultationService
+public class ConsultationService extends Tut1Sender
 {
+    @Autowired
+    private RabbitTemplate template;
+    @Autowired
+    private Queue queue;
     @Value("${server.port}") // SpEL (Spring Expression Language)
     private String serverPort;
     private final ConsultationRepo repository;
@@ -21,6 +30,10 @@ public class ConsultationService
 
     public ConsultationOriginal createNewAnimal(ConsultationOriginal request)
     {
+
+        String message = "Consultation Created at";
+        this.template.convertAndSend(queue.getName(), message);
+        System.out.println(" [x] Created '" + message + "'");
         Consultation newConsultation = new Consultation();
         newConsultation.setAnimalConsulted(request.getAnimalConsulted());
         newConsultation.setConsultationId(request.getConsultationId());

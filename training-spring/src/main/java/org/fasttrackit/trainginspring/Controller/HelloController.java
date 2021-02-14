@@ -10,6 +10,10 @@ import org.fasttrackit.trainginspring.model.ConsultationOriginal;
 import org.fasttrackit.trainginspring.model.OwnersOriginal;
 import org.fasttrackit.trainginspring.Repo.AnimalRepo;
 import org.fasttrackit.trainginspring.model.VetsOriginal;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,6 +24,8 @@ public class HelloController {
     private final VetService serviceVet;
     private final ConsultationService consultService;
     String[] a;
+
+
 
     HelloController(AnimalRepo repository, AnimalService servicee, OwnersService serviceOwner, VetService serviceVet, ConsultationService consultService) {
         this.repository = repository;
@@ -124,6 +130,7 @@ public class HelloController {
     @PostMapping("/Consultation")
     public ConsultationOriginal createNewConsultation(@RequestBody ConsultationOriginal newConsult)
     {
+
         return consultService.createNewAnimal(newConsult);
     }
 }
