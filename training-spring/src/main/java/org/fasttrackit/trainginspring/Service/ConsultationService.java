@@ -30,11 +30,13 @@ public class ConsultationService extends Tut1Sender
 
     public ConsultationOriginal createNewAnimal(ConsultationOriginal request)
     {
-
+                        /*Notification*/
         String message = "Consultation Created at";
         this.template.convertAndSend(queue.getName(), message);
         System.out.println(" [x] Created '" + message + "'");
         Consultation newConsultation = new Consultation();
+
+
         newConsultation.setAnimalConsulted(request.getAnimalConsulted());
         newConsultation.setConsultationId(request.getConsultationId());
         newConsultation.setOwnersAnimalConsulted(request.getOwnersAnimalConsulted());
