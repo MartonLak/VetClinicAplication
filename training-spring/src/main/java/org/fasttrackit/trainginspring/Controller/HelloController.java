@@ -1,19 +1,9 @@
 package org.fasttrackit.trainginspring.Controller;
 import java.util.List;
 
-import org.fasttrackit.trainginspring.Service.ConsultationService;
-import org.fasttrackit.trainginspring.Service.OwnersService;
-import org.fasttrackit.trainginspring.Service.VetService;
-import org.fasttrackit.trainginspring.model.AnimalsOriginal;
-import org.fasttrackit.trainginspring.Service.AnimalService;
-import org.fasttrackit.trainginspring.model.ConsultationOriginal;
-import org.fasttrackit.trainginspring.model.OwnersOriginal;
+import org.fasttrackit.trainginspring.Service.*;
+import org.fasttrackit.trainginspring.model.*;
 import org.fasttrackit.trainginspring.Repo.AnimalRepo;
-import org.fasttrackit.trainginspring.model.VetsOriginal;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,16 +13,18 @@ public class HelloController {
     private final OwnersService serviceOwner;
     private final VetService serviceVet;
     private final ConsultationService consultService;
+    private final DiagnosisService diagnosisService;
     String[] a;
 
 
 
-    HelloController(AnimalRepo repository, AnimalService servicee, OwnersService serviceOwner, VetService serviceVet, ConsultationService consultService) {
+    HelloController(AnimalRepo repository, AnimalService servicee, OwnersService serviceOwner, VetService serviceVet, ConsultationService consultService, DiagnosisService diagnosisService) {
         this.repository = repository;
         this.servicee = servicee;
         this.serviceOwner = serviceOwner;
         this.serviceVet = serviceVet;
         this.consultService = consultService;
+        this.diagnosisService = diagnosisService;
     }
 
     @GetMapping("/api/salut")
@@ -138,4 +130,16 @@ public class HelloController {
         this.consultService.deleteConsultation(id);
     }
 
+                                            /*Diagnosis Endpoints:*/
+
+    @PostMapping("/diagnosis")
+    public DiagnosticsOriginal createNewDiagnosis(@RequestBody DiagnosticsOriginal newDiag)
+    {
+        return diagnosisService.createNewDiagnosis(newDiag);
+    }
+    @DeleteMapping("/diagnosis/{id}")
+    void deleteDiagnosis(@PathVariable Long id)
+    {
+        this.diagnosisService.deleteDiagnosis(id);
+    }
 }
