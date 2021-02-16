@@ -13,6 +13,7 @@ public class Animals
     private @Enumerated(EnumType.STRING)
     @Column Species Species;
 
+    @Transient
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "animalConsulted")
     private List<Consultation> consultationEntity;
 
