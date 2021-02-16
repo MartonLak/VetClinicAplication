@@ -116,7 +116,7 @@ public class HelloController {
     }
 
     @PutMapping("/vet/{id}")
-    public VetsOriginal Update(@RequestBody VetsOriginal newVet) {
+    public VetsOriginal update(@RequestBody VetsOriginal newVet) {
         return serviceVet.updateVets(newVet);
     }
 
@@ -127,12 +127,12 @@ public class HelloController {
 
                                                       /*Consultation Endpoints:*/
 
-    @PostMapping("/Consultation")
+    @PostMapping("/consultation")
     public ConsultationOriginal createNewConsultation(@RequestBody ConsultationOriginal newConsult)
     {
-        return consultService.createNewAnimal(newConsult);
+        return consultService.createNewConsultation(newConsult);
     }
-    @DeleteMapping("/Consultation/{id}")
+    @DeleteMapping("/consultation/{id}")
     void deleteConsultation(@PathVariable Long id)
     {
         this.consultService.deleteConsultation(id);

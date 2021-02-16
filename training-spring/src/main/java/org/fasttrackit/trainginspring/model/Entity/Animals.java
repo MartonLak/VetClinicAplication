@@ -13,14 +13,14 @@ public class Animals
     private @Enumerated(EnumType.STRING)
     @Column Species Species;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "animalConsulted")
-    private Consultation consultationEntity;
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "animalConsulted")
+    private List<Consultation> consultationEntity;
 
-    public Consultation getConsultationEntity() {
+    public List<Consultation> getConsultationEntity() {
         return consultationEntity;
     }
 
-    public void setConsultationEntity(Consultation consultationEntity) {
+    public void setConsultationEntity(List<Consultation> consultationEntity) {
         this.consultationEntity = consultationEntity;
     }
 

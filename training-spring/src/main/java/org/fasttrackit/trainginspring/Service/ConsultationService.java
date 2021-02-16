@@ -28,7 +28,7 @@ public class ConsultationService
         this.repository = repository;
     }
 
-    public ConsultationOriginal createNewAnimal(ConsultationOriginal request)
+    public ConsultationOriginal createNewConsultation(ConsultationOriginal request)
     {
                         /*Notification*/
         String message = "Consultation Created at";

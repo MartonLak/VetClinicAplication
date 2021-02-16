@@ -15,20 +15,18 @@ public class Consultation
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long consultationId;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Animals animalConsulted;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Owners ownersAnimalConsulted;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Vet vet;
 
 
 
-    @ManyToMany(mappedBy = "animalsEntity")
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "animalsEntity")
     private List<Owners> OwnersEntity;
 
     public Long getConsultationId() {

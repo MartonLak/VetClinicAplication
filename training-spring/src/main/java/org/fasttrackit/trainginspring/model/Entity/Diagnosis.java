@@ -10,7 +10,7 @@ public class Diagnosis
     private Long diagnosticsId;
 
     @Column
-    private  Long consultationIdReferenced = new Consultation().getConsultationId();
+    private  Long consultationIdReferenced;
 
     @Column
     private  String Title;

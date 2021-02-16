@@ -784,15 +784,15 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1613023601</StartupTime>
+      <StartupTime>1613375430</StartupTime>
     </root>
     <database id="2" parent="1" name="animals">
       <ObjectId>16497</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1093</IntrospectionStateNumber>
-      <Relations>sequence|table|16591|16593|1
-sequence|table|16520|16522|1
-sequence|table|16608|16610|1
+      <IntrospectionStateNumber>1164</IntrospectionStateNumber>
+      <Relations>sequence|table|16520|16522|1
+sequence|table|16591|16593|1
+sequence|table|16666|16668|1
 </Relations>
     </database>
     <database id="3" parent="1" name="customer">
@@ -846,21 +846,21 @@ sequence|table|16608|16610|1
       <ObjectId>13158</ObjectId>
       <StateNumber>293</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1094</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1165</IntrospectionStateNumber>
     </schema>
     <schema id="16" parent="2" name="pg_catalog">
       <ObjectId>11</ObjectId>
       <Comment>system catalog schema</Comment>
       <StateNumber>286</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1095</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1166</IntrospectionStateNumber>
     </schema>
     <schema id="17" parent="2" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1096</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1167</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="18" parent="2" name="heap">
@@ -58464,10 +58464,10 @@ r/10
       <StateNumber>643</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="4901" parent="17" name="consultation_consultation_id_seq">
-      <ObjectId>16608</ObjectId>
+    <sequence id="4901" parent="17" name="diagnosis_diagnostics_id_seq">
+      <ObjectId>16666</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1045</StateNumber>
+      <StateNumber>1118</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="4902" parent="17" name="owners_id_seq">
@@ -58485,17 +58485,17 @@ r/10
     <table id="4904" parent="17" name="animals">
       <ObjectId>16498</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>785</StateNumber>
+      <StateNumber>1142</StateNumber>
     </table>
     <table id="4905" parent="17" name="animals_consultation_list">
       <ObjectId>16568</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>802</StateNumber>
     </table>
-    <table id="4906" parent="17" name="consultation">
-      <ObjectId>16610</ObjectId>
+    <table id="4906" parent="17" name="diagnosis">
+      <ObjectId>16668</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1088</StateNumber>
+      <StateNumber>1118</StateNumber>
     </table>
     <table id="4907" parent="17" name="diagnostics">
       <ObjectId>16581</ObjectId>
@@ -58525,7 +58525,7 @@ r/10
     <table id="4912" parent="17" name="vets">
       <ObjectId>16593</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1002</StateNumber>
+      <StateNumber>1098</StateNumber>
     </table>
     <check id="4913" parent="30" name="cardinal_number_domain_check">
       <ObjectId>13172</ObjectId>
@@ -106094,35 +106094,41 @@ umserver</ColNames>
       <StateNumber>785</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="15876" parent="4904" name="animals_pkey">
+    <column id="15876" parent="4904" name="consultation_entity_consultation_id">
+      <Position>5</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>1142</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="15877" parent="4904" name="animals_pkey">
       <ObjectId>16501</ObjectId>
       <StateNumber>712</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="15877" parent="4904" name="animals_pkey">
+    <key id="15878" parent="4904" name="animals_pkey">
       <ObjectId>16502</ObjectId>
       <StateNumber>642</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>animals_pkey</UnderlyingIndexName>
     </key>
-    <column id="15878" parent="4905" name="animals_id">
+    <column id="15879" parent="4905" name="animals_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>801</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="15879" parent="4905" name="consultation_list_id">
+    <column id="15880" parent="4905" name="consultation_list_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>801</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="15880" parent="4905" name="fkhii0fh2xc43vhp5htktt142u">
+    <foreign-key id="15881" parent="4905" name="fkhii0fh2xc43vhp5htktt142u">
       <ObjectId>16576</ObjectId>
       <StateNumber>803</StateNumber>
       <ColNames>animals_id</ColNames>
@@ -106132,90 +106138,98 @@ umserver</ColNames>
       <RefKeyName>animals_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="15881" parent="4906" name="consultation_id">
+    <column id="15882" parent="4906" name="diagnostics_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1045</StateNumber>
-      <DefaultExpression>nextval(&apos;consultation_consultation_id_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>1118</StateNumber>
+      <DefaultExpression>nextval(&apos;diagnosis_diagnostics_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="15882" parent="4906" name="animal_consulted_id">
+    <column id="15883" parent="4906" name="description">
       <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1118</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="15884" parent="4906" name="recommendations">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1118</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="15885" parent="4906" name="title">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1118</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="15886" parent="4906" name="consultation_id_referenced">
+      <Position>5</Position>
       <DataType>bigint|0s</DataType>
-      <StateNumber>1083</StateNumber>
+      <StateNumber>1118</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="15883" parent="4906" name="consultation_pkey">
-      <ObjectId>16614</ObjectId>
-      <StateNumber>1045</StateNumber>
-      <ColNames>consultation_id</ColNames>
+    <index id="15887" parent="4906" name="diagnosis_pkey">
+      <ObjectId>16675</ObjectId>
+      <StateNumber>1118</StateNumber>
+      <ColNames>diagnostics_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="15884" parent="4906" name="consultation_pkey">
-      <ObjectId>16615</ObjectId>
-      <StateNumber>1045</StateNumber>
-      <ColNames>consultation_id</ColNames>
+    <key id="15888" parent="4906" name="diagnosis_pkey">
+      <ObjectId>16676</ObjectId>
+      <StateNumber>1118</StateNumber>
+      <ColNames>diagnostics_id</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>consultation_pkey</UnderlyingIndexName>
+      <UnderlyingIndexName>diagnosis_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="15885" parent="4906" name="fkev5bwigjjysqiianpdqycx57w">
-      <ObjectId>16632</ObjectId>
-      <StateNumber>1085</StateNumber>
-      <ColNames>animal_consulted_id</ColNames>
-      <RefTableId>16498</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>animals</RefTableName>
-      <RefKeyName>animals_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="15886" parent="4907" name="comments">
+    <column id="15889" parent="4907" name="comments">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>954</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15887" parent="4907" name="date_of_consulting">
+    <column id="15890" parent="4907" name="date_of_consulting">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>954</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="15888" parent="4907" name="date_of_scheduling">
+    <column id="15891" parent="4907" name="date_of_scheduling">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>954</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="15889" parent="4907" name="recommendation">
+    <column id="15892" parent="4907" name="recommendation">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>954</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15890" parent="4907" name="consultationid">
+    <column id="15893" parent="4907" name="consultationid">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>981</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="15891" parent="4907" name="diagnostics_pkey">
+    <index id="15894" parent="4907" name="diagnostics_pkey">
       <ObjectId>16589</ObjectId>
       <StateNumber>997</StateNumber>
       <ColNames>consultationid</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="15892" parent="4907" name="diagnostics_pkey">
+    <key id="15895" parent="4907" name="diagnostics_pkey">
       <ObjectId>16590</ObjectId>
       <StateNumber>997</StateNumber>
       <ColNames>consultationid</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>diagnostics_pkey</UnderlyingIndexName>
     </key>
-    <column id="15893" parent="4908" name="id">
+    <column id="15896" parent="4908" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -106223,65 +106237,65 @@ umserver</ColNames>
       <DefaultExpression>nextval(&apos;owners_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="15894" parent="4908" name="cnp">
+    <column id="15897" parent="4908" name="cnp">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>755</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="15895" parent="4908" name="first_name">
+    <column id="15898" parent="4908" name="first_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>756</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15896" parent="4908" name="last_name">
+    <column id="15899" parent="4908" name="last_name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>757</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15897" parent="4908" name="email">
+    <column id="15900" parent="4908" name="email">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1019</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15898" parent="4908" name="phone_number">
+    <column id="15901" parent="4908" name="phone_number">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1020</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="15899" parent="4908" name="owners_pkey">
+    <index id="15902" parent="4908" name="owners_pkey">
       <ObjectId>16526</ObjectId>
       <StateNumber>1014</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="15900" parent="4908" name="owners_pkey">
+    <key id="15903" parent="4908" name="owners_pkey">
       <ObjectId>16527</ObjectId>
       <StateNumber>751</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>owners_pkey</UnderlyingIndexName>
     </key>
-    <column id="15901" parent="4909" name="owners_entity_id">
+    <column id="15904" parent="4909" name="owners_entity_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1084</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="15902" parent="4909" name="animals_entity_id">
+    <column id="15905" parent="4909" name="animals_entity_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1084</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="15903" parent="4909" name="fk3tpq9uu6ka5jk4m4a26r8hee7">
+    <foreign-key id="15906" parent="4909" name="fk3tpq9uu6ka5jk4m4a26r8hee7">
       <ObjectId>16642</ObjectId>
       <StateNumber>1087</StateNumber>
       <ColNames>owners_entity_id</ColNames>
@@ -106291,7 +106305,7 @@ umserver</ColNames>
       <RefKeyName>owners_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="15904" parent="4909" name="fk6xbji5luerhxd3q1hq8r3xpjj">
+    <foreign-key id="15907" parent="4909" name="fk6xbji5luerhxd3q1hq8r3xpjj">
       <ObjectId>16637</ObjectId>
       <StateNumber>1086</StateNumber>
       <ColNames>animals_entity_id</ColNames>
@@ -106301,21 +106315,21 @@ umserver</ColNames>
       <RefKeyName>animals_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="15905" parent="4910" name="owners_id">
+    <column id="15908" parent="4910" name="owners_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>752</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="15906" parent="4910" name="anmials_id">
+    <column id="15909" parent="4910" name="anmials_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>752</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="15907" parent="4910" name="fkjaqrsr8tdkcatqn0iukp5mrug">
+    <foreign-key id="15910" parent="4910" name="fkjaqrsr8tdkcatqn0iukp5mrug">
       <ObjectId>16536</ObjectId>
       <StateNumber>754</StateNumber>
       <ColNames>owners_id</ColNames>
@@ -106325,7 +106339,7 @@ umserver</ColNames>
       <RefKeyName>owners_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="15908" parent="4910" name="fkf1gxrblptvspwmjbc297lavxk">
+    <foreign-key id="15911" parent="4910" name="fkf1gxrblptvspwmjbc297lavxk">
       <ObjectId>16531</ObjectId>
       <StateNumber>753</StateNumber>
       <ColNames>anmials_id</ColNames>
@@ -106335,34 +106349,34 @@ umserver</ColNames>
       <RefKeyName>animals_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="15909" parent="4911" name="id">
+    <column id="15912" parent="4911" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>687</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="15910" parent="4911" name="species">
+    <column id="15913" parent="4911" name="species">
       <Position>2</Position>
       <DataType>varchar(64)|0s</DataType>
       <StateNumber>680</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="15911" parent="4911" name="spice_pkey">
+    <index id="15914" parent="4911" name="spice_pkey">
       <ObjectId>16514</ObjectId>
       <StateNumber>687</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="15912" parent="4911" name="spice_pkey">
+    <key id="15915" parent="4911" name="spice_pkey">
       <ObjectId>16515</ObjectId>
       <StateNumber>687</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>spice_pkey</UnderlyingIndexName>
     </key>
-    <column id="15913" parent="4912" name="id">
+    <column id="15916" parent="4912" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -106370,56 +106384,56 @@ umserver</ColNames>
       <DefaultExpression>nextval(&apos;vets_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="15914" parent="4912" name="cnp">
+    <column id="15917" parent="4912" name="cnp">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1002</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="15915" parent="4912" name="email">
+    <column id="15918" parent="4912" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1002</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15916" parent="4912" name="first_name">
+    <column id="15919" parent="4912" name="first_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1002</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15917" parent="4912" name="last_name">
+    <column id="15920" parent="4912" name="last_name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1002</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15918" parent="4912" name="phone_number">
+    <column id="15921" parent="4912" name="phone_number">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1002</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15919" parent="4912" name="specialization">
+    <column id="15922" parent="4912" name="specialization">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1002</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="15920" parent="4912" name="year_of_graduation">
+    <column id="15923" parent="4912" name="year_of_graduation">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>1002</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="15921" parent="4912" name="vets_pkey">
+    <index id="15924" parent="4912" name="vets_pkey">
       <ObjectId>16600</ObjectId>
       <StateNumber>1002</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="15922" parent="4912" name="vets_pkey">
+    <key id="15925" parent="4912" name="vets_pkey">
       <ObjectId>16601</ObjectId>
       <StateNumber>1002</StateNumber>
       <ColNames>id</ColNames>

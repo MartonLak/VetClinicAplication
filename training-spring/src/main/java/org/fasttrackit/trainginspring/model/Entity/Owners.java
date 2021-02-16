@@ -26,11 +26,11 @@ public class Owners
         this.animalsEntity = animalsEntity;
     }
 
-    public Consultation getConsultationEntity() {
+    public List<Consultation> getConsultationEntity() {
         return consultationEntity;
     }
 
-    public void setConsultationEntity(Consultation consultationEntity) {
+    public void setConsultationEntity(List<Consultation> consultationEntity) {
         this.consultationEntity = consultationEntity;
     }
 
@@ -38,10 +38,10 @@ public class Owners
     private String phoneNumber;
     @Column
     private String email;
-@ManyToMany
-private List<Animals>  animalsEntity;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "ownersAnimalConsulted")
-    private Consultation consultationEntity;
+    @ManyToMany
+    private List<Animals>  animalsEntity;
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST, mappedBy = "ownersAnimalConsulted")
+    private List<Consultation> consultationEntity;
 
     public String getPhoneNumber() {
         return phoneNumber;
