@@ -23,18 +23,16 @@ public class DiagnosisService
     private String serverPort;
     private final DiagnosticsRepo repository;
 
+    Diagnosis newText = new Diagnosis();
     public DiagnosisService(DiagnosticsRepo repository) {
         this.repository = repository;
     }
 
     public DiagnosticsOriginal createNewDiagnosis(DiagnosticsOriginal request)
     {
-                        /*Notification*/
-        String message = "Diagnosis Created at";
-        this.template.convertAndSend(queue.getName(), message);
-        System.out.println(" [x] Created '" + message + "'");
-                 /*SaveInRepo*/
 
+
+                 /*SaveInRepo*/
         Diagnosis newDiagnosis = new Diagnosis();
         newDiagnosis.setConsultationIdReferenced(request.getConsultationIdReferenced());
         newDiagnosis.setDescription(request.getDescription());
@@ -42,7 +40,11 @@ public class DiagnosisService
         newDiagnosis.setRecommendations(request.getRecommendations());
         newDiagnosis.setTitle(request.getTitle());
         Diagnosis saveEntity = this.repository.save(newDiagnosis);
-                return mapEntityToAnimalsRepo(saveEntity);
+        /*Notification*/
+        String message = "Diagnosis Created at" + saveEntity.toString();
+        this.template.convertAndSend(queue.getName(), message);
+        System.out.println(" [x] Created '" + message + "'");
+        return mapEntityToAnimalsRepo(saveEntity);
     }
     public void deleteDiagnosis(Long id)
     {

@@ -4,6 +4,10 @@ import java.util.List;
 import org.fasttrackit.trainginspring.Service.*;
 import org.fasttrackit.trainginspring.model.*;
 import org.fasttrackit.trainginspring.Repo.AnimalRepo;
+import org.fasttrackit.trainginspring.model.Entity.Diagnosis;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -130,11 +134,12 @@ public class HelloController {
         this.consultService.deleteConsultation(id);
     }
 
-                                            /*Diagnosis Endpoints:*/
+                                     /*Diagnosis Endpoints:*/
 
     @PostMapping("/diagnosis")
     public DiagnosticsOriginal createNewDiagnosis(@RequestBody DiagnosticsOriginal newDiag)
     {
+
         return diagnosisService.createNewDiagnosis(newDiag);
     }
     @DeleteMapping("/diagnosis/{id}")

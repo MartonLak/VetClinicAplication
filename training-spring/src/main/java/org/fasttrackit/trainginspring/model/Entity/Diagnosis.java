@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity(name = "diagnosis")
 public class Diagnosis
 {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long diagnosticsId;
@@ -59,5 +60,15 @@ public class Diagnosis
 
     public void setRecommendations(String recommendations) {
         Recommendations = recommendations;
+    }
+    @Override
+    public String toString() {
+        return "Diagnosis{" +
+                "diagnosticsId=" + diagnosticsId +
+                ", consultationIdReferenced=" + consultationIdReferenced +
+                ", Title='" + Title + '\'' +
+                ", Description='" + Description + '\'' +
+                ", Recommendations='" + Recommendations + '\'' +
+                '}';
     }
 }

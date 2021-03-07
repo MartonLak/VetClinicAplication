@@ -13,6 +13,16 @@ public class DiagnosticsOriginal
     private String Description;
     private String Recommendations;
 
+    @Override
+    public String toString() {
+        return "DiagnosticsOriginal{" +
+                "diagnosticsId=" + diagnosticsId +
+                ", consultationIdReferenced=" + consultationIdReferenced +
+                ", Title='" + Title + '\'' +
+                ", Description='" + Description + '\'' +
+                ", Recommendations='" + Recommendations + '\'' +
+                '}';
+    }
 
     public Long getDiagnosticsId() {
         return diagnosticsId;
