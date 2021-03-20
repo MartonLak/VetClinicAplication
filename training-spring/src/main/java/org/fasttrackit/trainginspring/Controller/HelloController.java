@@ -123,6 +123,21 @@ public class HelloController {
 
                                                       /*Consultation Endpoints:*/
 
+    @GetMapping("/consultation")
+    List<ConsultationOriginal> findAllConsul()
+    {
+        return consultService.findAllConsultations();
+    }
+    @GetMapping("/consultation/{id}")
+    public String findConsult(@PathVariable Long id)
+    {
+        return consultService.findConsultationById(id);
+    }
+    @PutMapping("/consultation/{id}")
+    public  ConsultationOriginal updateConsult(@RequestBody ConsultationOriginal newConsult)
+    {
+        return consultService.updateConsultation(newConsult);
+    }
     @PostMapping("/consultation")
     public ConsultationOriginal createNewConsultation(@RequestBody ConsultationOriginal newConsult)
     {

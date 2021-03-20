@@ -6,12 +6,18 @@ import org.fasttrackit.trainginspring.model.AnimalsOriginal;
 import org.fasttrackit.trainginspring.model.ConsultationOriginal;
 import org.fasttrackit.trainginspring.model.Entity.Animals;
 import org.fasttrackit.trainginspring.model.Entity.Consultation;
+import org.fasttrackit.trainginspring.model.OwnersOriginal;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import java.awt.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ConsultationService
@@ -44,6 +50,33 @@ public class ConsultationService
         this.template.convertAndSend(queue.getName(), message);
         System.out.println(" [x] Created '" + message + "'");
         return mapEntityToConsultRepo(saveEntity);
+    }
+    public String findConsultationById(Long consultationID)
+    {
+        Optional<Consultation> foundEntity = repository.findById(consultationID);
+        if(!foundEntity.isPresent())
+        {
+            return null;
+        }
+        return "ConsultationID= "+foundEntity.map(entityToMap->mapEntityToConsultRepo(entityToMap)).get().getConsultationId().toString() +"\r\n"+ foundEntity.map(entityToMap->mapEntityToConsultRepo(entityToMap)).get().getAnimalConsulted().toString()+foundEntity.map(entityToMap->mapEntityToConsultRepo(entityToMap)).get().getVet().toString()+"\r\n"+foundEntity.map(entityToMap->mapEntityToConsultRepo(entityToMap)).get().getOwnersAnimalConsulted().toString();
+    }
+    public ConsultationOriginal updateConsultation (ConsultationOriginal request)
+    {
+        Consultation newConsult1 = new Consultation();
+        newConsult1.setAnimalConsulted(request.getAnimalConsulted());
+        newConsult1.setConsultationId(request.getConsultationId());
+        newConsult1.setOwnersAnimalConsulted(request.getOwnersAnimalConsulted());
+        newConsult1.setVet(request.getVet());
+        newConsult1.setConsultationId(request.getConsultationId());
+        Consultation saveEntity = this.repository.save(newConsult1);
+        return mapEntityToConsultRepo(saveEntity);
+    }
+    public List<ConsultationOriginal> findAllConsultations()
+    {
+        List<Consultation> foundEntity = repository.findAll();
+
+        //return this.repository.findAll().stream().map(entity->mapEntityToConsultRepo(entity)).collect(Collectors.toList());
+        return foundEntity.stream().map(entity->mapEntityToConsultRepo(entity)).collect(Collectors.toList());
     }
     public void deleteConsultation(Long id)
     {

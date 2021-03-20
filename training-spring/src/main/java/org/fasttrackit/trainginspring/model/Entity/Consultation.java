@@ -68,4 +68,15 @@ public class Consultation
     public void setOwnersEntity(List<Owners> ownersEntity) {
         OwnersEntity = ownersEntity;
     }
+
+    @Override
+    public String toString() {
+        return "Consultation{" +
+                "consultationId=" + consultationId +
+                ", animalConsulted=" + animalConsulted +
+                ", ownersAnimalConsulted=" + ownersAnimalConsulted +
+                ", vet=" + vet +
+                ", OwnersEntity=" + OwnersEntity +
+                '}';
+    }
 }

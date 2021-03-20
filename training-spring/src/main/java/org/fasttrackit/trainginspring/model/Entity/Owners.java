@@ -92,4 +92,15 @@ public class Owners
         this.lastName = ownersName;
     }
 
+    @Override
+    public String toString() {
+        return "Owners{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", CNP=" + CNP +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

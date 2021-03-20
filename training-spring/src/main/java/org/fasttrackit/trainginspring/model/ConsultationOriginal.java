@@ -43,4 +43,14 @@ public class ConsultationOriginal
     public void setVet(Vet vet) {
         this.vet = vet;
     }
+
+    @Override
+    public String toString() {
+        return "ConsultationOriginal{" +
+                "consultationId=" + consultationId +
+                ", animalConsulted=" + animalConsulted +
+                ", ownersAnimalConsulted=" + ownersAnimalConsulted +
+                ", vet=" + vet +
+                '}';
+    }
 }
