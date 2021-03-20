@@ -30,8 +30,6 @@ public class DiagnosisService
 
     public DiagnosticsOriginal createNewDiagnosis(DiagnosticsOriginal request)
     {
-
-
                  /*SaveInRepo*/
         Diagnosis newDiagnosis = new Diagnosis();
         newDiagnosis.setConsultationIdReferenced(request.getConsultationIdReferenced());

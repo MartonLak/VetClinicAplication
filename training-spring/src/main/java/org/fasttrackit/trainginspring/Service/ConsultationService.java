@@ -30,10 +30,7 @@ public class ConsultationService
 
     public ConsultationOriginal createNewConsultation(ConsultationOriginal request)
     {
-                        /*Notification*/
-        String message = "Consultation Created at";
-        this.template.convertAndSend(queue.getName(), message);
-        System.out.println(" [x] Created '" + message + "'");
+
                         /*SaveInRepo*/
         Consultation newConsultation = new Consultation();
         newConsultation.setAnimalConsulted(request.getAnimalConsulted());
@@ -41,12 +38,17 @@ public class ConsultationService
         newConsultation.setOwnersAnimalConsulted(request.getOwnersAnimalConsulted());
         newConsultation.setVet(request.getVet());
         Consultation saveEntity = this.repository.save(newConsultation);
+
+        /*Notification*/
+        String message = "Consultation with ID:"+ saveEntity.getConsultationId().toString() + " and VetID:"+saveEntity.getVet().getId().toString() + "(Name:"+saveEntity.getVet().getFirstName() +") Created at";
+        this.template.convertAndSend(queue.getName(), message);
+        System.out.println(" [x] Created '" + message + "'");
         return mapEntityToConsultRepo(saveEntity);
     }
     public void deleteConsultation(Long id)
     {
         /*Notification*/
-        String message = "Consultation Deleted at";
+        String message = "Consultation with ID"+ id.toString()+ "Deleted at";
         this.template.convertAndSend(queue.getName(), message);
         System.out.println(" [x] Created '" + message + "'");
         this.repository.deleteById(id);
