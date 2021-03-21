@@ -16,7 +16,7 @@ public class Owners
     @Column
     private String firstName;
     @Column
-    private Integer  CNP;
+    private Integer cnp;
 
     public List<Animals> getAnimalsEntity() {
         return animalsEntity;
@@ -68,12 +68,12 @@ public class Owners
         this.firstName = firstName;
     }
 
-    public Integer getCNP() {
-        return CNP;
+    public Integer getCnp() {
+        return cnp;
     }
 
-    public void setCNP(Integer CNP) {
-        this.CNP = CNP;
+    public void setCnp(Integer CNP) {
+        this.cnp = CNP;
     }
 
     public Long getId() {
@@ -98,7 +98,7 @@ public class Owners
                 "id=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", CNP=" + CNP +
+                ", CNP=" + cnp +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 '}';

@@ -1,26 +1,22 @@
 package org.fasttrackit.trainginspring.model;
 
-import org.fasttrackit.trainginspring.model.Entity.Consultation;
-
-import javax.persistence.Column;
-
 public class DiagnosticsOriginal
 
 {
     private Long diagnosticsId;
     private  Long consultationIdReferenced;
-    private  String Title;
-    private String Description;
-    private String Recommendations;
+    private  String title;
+    private String description;
+    private String recommendations;
 
     @Override
     public String toString() {
         return "DiagnosticsOriginal{" +
                 "diagnosticsId=" + diagnosticsId +
                 ", consultationIdReferenced=" + consultationIdReferenced +
-                ", Title='" + Title + '\'' +
-                ", Description='" + Description + '\'' +
-                ", Recommendations='" + Recommendations + '\'' +
+                ", Title='" + title + '\'' +
+                ", Description='" + description + '\'' +
+                ", Recommendations='" + recommendations + '\'' +
                 '}';
     }
 
@@ -41,26 +37,26 @@ public class DiagnosticsOriginal
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getRecommendations() {
-        return Recommendations;
+        return recommendations;
     }
 
     public void setRecommendations(String recommendations) {
-        Recommendations = recommendations;
+        this.recommendations = recommendations;
     }
 }

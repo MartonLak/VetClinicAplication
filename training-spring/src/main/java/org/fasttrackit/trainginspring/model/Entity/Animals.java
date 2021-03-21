@@ -11,7 +11,7 @@ public class Animals
     private @Id @GeneratedValue Long id;
     private String name;
     private @Enumerated(EnumType.STRING)
-    @Column Species Species;
+    @Column Species species;
 
     @Transient
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "animalConsulted")
@@ -37,7 +37,7 @@ public class Animals
     }
 
     public Species getSpecies() {
-        return this.Species;
+        return this.species;
     }
 
     public void setId(Long id) {
@@ -49,7 +49,7 @@ public class Animals
     }
 
     public void setSpecies(Species species) {
-        this.Species = species;
+        this.species = species;
     }
 
     @Override
@@ -61,16 +61,16 @@ public class Animals
             return false;
         Animals animals = (Animals) o;
         return Objects.equals(this.id, animals.id) && Objects.equals(this.name, animals.name)
-                && Objects.equals(this.Species, animals.Species);
+                && Objects.equals(this.species, animals.species);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.name, this.Species);
+        return Objects.hash(this.id, this.name, this.species);
     }
 
     @Override
     public String toString() {
-        return "Pet:{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.Species + '\'' + '}'+"\r\n";
+        return "Pet:{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.species + '\'' + '}'+"\r\n";
     }
 }

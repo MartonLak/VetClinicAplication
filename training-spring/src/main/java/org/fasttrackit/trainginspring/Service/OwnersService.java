@@ -1,15 +1,12 @@
 package org.fasttrackit.trainginspring.Service;
 
 
-import org.fasttrackit.trainginspring.model.AnimalsOriginal;
 import org.fasttrackit.trainginspring.model.Entity.Owners;
 import org.fasttrackit.trainginspring.model.OwnersOriginal;
 import org.fasttrackit.trainginspring.Repo.OwnersRepo;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.expression.spel.support.ReflectivePropertyAccessor;
 import org.springframework.stereotype.Service;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -30,7 +27,7 @@ public class OwnersService
         Owners newOwner1 = new Owners();
         newOwner1.setFirstName(request.getFirstName());
         newOwner1.setLastName(request.getLastName());
-        newOwner1.setCNP(request.getCNP());
+        newOwner1.setCnp(request.getCNP());
         newOwner1.setEmail(request.getEmail());
         newOwner1.setPhoneNumber(request.getPhoneNumber());
         Owners saveEntity  =this.repository.save(newOwner1);
@@ -56,7 +53,7 @@ public class OwnersService
         newOwner1.setFirstName(request.getFirstName());
         newOwner1.setLastName(request.getLastName());
         newOwner1.setId(request.getId());
-        newOwner1.setCNP(request.getCNP());
+        newOwner1.setCnp(request.getCNP());
         newOwner1.setEmail(request.getEmail());
         newOwner1.setPhoneNumber(request.getPhoneNumber());
         Owners saveEntity  =this.repository.save(newOwner1);
@@ -68,7 +65,7 @@ public class OwnersService
         response.setId(entity.getId());
         response.setFirstName(entity.getFirstName());
         response.setLastName(entity.getLastName());
-        response.setCNP(entity.getCNP());
+        response.setCNP(entity.getCnp());
         response.setEmail(entity.getEmail());
         response.setPhoneNumber(entity.getPhoneNumber());
         return response;

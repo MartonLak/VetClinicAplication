@@ -1,11 +1,6 @@
 package org.fasttrackit.trainginspring.model.Entity;
 
-import org.fasttrackit.trainginspring.model.DTO.AnimalsDTO;
-import org.hibernate.service.spi.InjectService;
-
 import javax.persistence.*;
-import java.awt.*;
-import java.util.Date;
 import java.util.List;
 
 @Entity(name = "consultation")
@@ -29,7 +24,7 @@ public class Consultation
     private Diagnosis diag;
 
     @ManyToMany(fetch = FetchType.LAZY,mappedBy = "animalsEntity")
-    private List<Owners> OwnersEntity;
+    private List<Owners> ownersEntity;
 
     public Long getConsultationId() {
         return consultationId;
@@ -64,11 +59,11 @@ public class Consultation
     }
 
     public List<Owners> getOwnersEntity() {
-        return OwnersEntity;
+        return ownersEntity;
     }
 
     public void setOwnersEntity(List<Owners> ownersEntity) {
-        OwnersEntity = ownersEntity;
+        this.ownersEntity = ownersEntity;
     }
 
     @Override
@@ -78,7 +73,7 @@ public class Consultation
                 ", animalConsulted=" + animalConsulted +
                 ", ownersAnimalConsulted=" + ownersAnimalConsulted +
                 ", vet=" + vet +
-                ", OwnersEntity=" + OwnersEntity +
+                ", OwnersEntity=" + ownersEntity +
                 '}';
     }
 }

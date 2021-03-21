@@ -15,13 +15,13 @@ public class Diagnosis
     private  Long consultationIdReferenced;
 
     @Column
-    private  String Title;
+    private  String title;
 
     @Column
-    private String Description;
+    private String description;
 
     @Column
-    private String Recommendations;
+    private String recommendations;
 
     @Transient
     @OneToOne(mappedBy = "consultationId")
@@ -44,36 +44,36 @@ public class Diagnosis
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getRecommendations() {
-        return Recommendations;
+        return recommendations;
     }
 
     public void setRecommendations(String recommendations) {
-        Recommendations = recommendations;
+        this.recommendations = recommendations;
     }
     @Override
     public String toString() {
         return "Diagnosis{" +
                 "diagnosticsId=" + diagnosticsId +
                 ", consultationIdReferenced=" + consultationIdReferenced +
-                ", Title='" + Title + '\'' +
-                ", Description='" + Description + '\'' +
-                ", Recommendations='" + Recommendations + '\'' +
+                ", Title='" + title + '\'' +
+                ", Description='" + description + '\'' +
+                ", Recommendations='" + recommendations + '\'' +
                 '}';
     }
 }
