@@ -4,16 +4,12 @@ import java.util.List;
 import org.fasttrackit.trainginspring.Service.*;
 import org.fasttrackit.trainginspring.model.*;
 import org.fasttrackit.trainginspring.Repo.AnimalRepo;
-import org.fasttrackit.trainginspring.model.Entity.Diagnosis;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
     private final AnimalRepo repository;
-    private final AnimalService servicee;
+    private final AnimalService animalService;
     private final OwnersService serviceOwner;
     private final VetService serviceVet;
     private final ConsultationService consultService;
@@ -22,9 +18,9 @@ public class HelloController {
 
 
 
-    HelloController(AnimalRepo repository, AnimalService servicee, OwnersService serviceOwner, VetService serviceVet, ConsultationService consultService, DiagnosisService diagnosisService) {
+    HelloController(AnimalRepo repository, AnimalService animalService, OwnersService serviceOwner, VetService serviceVet, ConsultationService consultService, DiagnosisService diagnosisService) {
         this.repository = repository;
-        this.servicee = servicee;
+        this.animalService = animalService;
         this.serviceOwner = serviceOwner;
         this.serviceVet = serviceVet;
         this.consultService = consultService;
@@ -41,27 +37,27 @@ public class HelloController {
 
     @GetMapping("/animals")
     List<AnimalsOriginal> all() {
-        return servicee.findAllAnimals();
+        return animalService.findAllAnimals();
     }
 
     @PostMapping("/animals")
     public AnimalsOriginal createNewAnimal(@RequestBody AnimalsOriginal newAnimals) {
-        return servicee.createNewAnimal(newAnimals);
+        return animalService.createNewAnimal(newAnimals);
     }
 
     @GetMapping("/animals/{id}")
-    public AnimalsOriginal FindAnimal(@PathVariable Long id) {
-        return servicee.findAnimal(id);
+    public AnimalsOriginal findAnimal(@PathVariable Long id) {
+        return animalService.findAnimal(id);
     }
 
     @PutMapping("animals/{id}")
     AnimalsOriginal replaceAnimals(@RequestBody AnimalsOriginal newAnimals, @PathVariable Long id) {
-        return servicee.updateAnimals(newAnimals);
+        return animalService.updateAnimals(newAnimals);
     }
 
     @DeleteMapping("/animals/{id}")
     void deleteAnimals(@PathVariable Long id) {
-        this.servicee.deleteAnimal(id);
+        this.animalService.deleteAnimal(id);
     }
 
 
@@ -124,7 +120,7 @@ public class HelloController {
                                                       /*Consultation Endpoints:*/
 
     @GetMapping("/consultation")
-    List<ConsultationOriginal> findAllConsul()
+    public List<ConsultationOriginal> findAllConsul()
     {
         return consultService.findAllConsultations();
     }
@@ -156,6 +152,21 @@ public class HelloController {
     {
 
         return diagnosisService.createNewDiagnosis(newDiag);
+    }
+    @GetMapping("/diagnosis/{id}")
+    public DiagnosticsOriginal findDiagById(@PathVariable Long id)
+    {
+        return diagnosisService.findOwnerById(id);
+    }
+    @PutMapping("diagnosis/{id}")
+    public DiagnosticsOriginal updateDiag(@RequestBody DiagnosticsOriginal diag)
+    {
+        return diagnosisService.updateDiagnosis(diag);
+    }
+    @GetMapping("/diagnosis")
+    public List<DiagnosticsOriginal>  findDiag()
+    {
+        return diagnosisService.findAllDiag();
     }
     @DeleteMapping("/diagnosis/{id}")
     void deleteDiagnosis(@PathVariable Long id)

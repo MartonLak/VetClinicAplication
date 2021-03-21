@@ -10,6 +10,7 @@ public class Diagnosis
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long diagnosticsId;
 
+
     @Column
     private  Long consultationIdReferenced;
 
@@ -21,6 +22,10 @@ public class Diagnosis
 
     @Column
     private String Recommendations;
+
+    @Transient
+    @OneToOne(mappedBy = "consultationId")
+    private Consultation consult;
 
     public Long getDiagnosticsId() {
         return diagnosticsId;

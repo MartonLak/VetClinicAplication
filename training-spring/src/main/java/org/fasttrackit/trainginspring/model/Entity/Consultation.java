@@ -24,7 +24,9 @@ public class Consultation
     @ManyToOne(cascade = CascadeType.ALL)
     private Vet vet;
 
-
+    @Transient
+    @OneToOne(mappedBy = "consult")
+    private Diagnosis diag;
 
     @ManyToMany(fetch = FetchType.LAZY,mappedBy = "animalsEntity")
     private List<Owners> OwnersEntity;
