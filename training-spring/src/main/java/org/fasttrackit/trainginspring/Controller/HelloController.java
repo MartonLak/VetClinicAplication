@@ -120,6 +120,7 @@ public class HelloController {
                                                       /*Consultation Endpoints:*/
 
     @GetMapping("/consultation")
+
     public List<ConsultationOriginal> findAllConsul()
     {
         return consultService.findAllConsultations();
