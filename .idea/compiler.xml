@@ -7,7 +7,13 @@
       <module name="spring-proiect.test" target="11" />
       <module name="traingin-spring.main" target="11" />
       <module name="traingin-spring.test" target="11" />
+      <module name="training-spring" target="11" />
+      <module name="training-spring.main" target="11" />
+      <module name="training-spring.test" target="11" />
+      <module name="vetclinic-notification" target="11" />
+      <module name="vetclinic-notification.main" target="11" />
       <module name="VetClinic-Notification.main" target="15" />
+      <module name="vetclinic-notification.test" target="11" />
       <module name="VetClinic-Notification.test" target="15" />
     </bytecodeTargetLevel>
   </component>
