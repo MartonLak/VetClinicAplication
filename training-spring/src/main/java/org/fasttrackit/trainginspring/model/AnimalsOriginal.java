@@ -7,7 +7,7 @@ public class AnimalsOriginal
     private Long id;
     private String name;
     private Species spice;
-    private Long chipId;
+    private Long chipIdd;
 
     public AnimalsOriginal(Long id, String name, Species spice) {
         this.id = id;
